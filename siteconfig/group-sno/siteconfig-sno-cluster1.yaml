@@ -1,0 +1,52 @@
+---
+apiVersion: ran.openshift.io/v1
+kind: SiteConfig
+metadata:
+  name: "ztp-sno"
+  namespace: "ztp-sno"
+spec:
+  baseDomain: 'local.lab'
+  pullSecretRef:
+    name: "ztp-pull-secret"
+  clusterImageSetNameRef: 'img4.18.16-x86-64-appsub'
+  sshPublicKey: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICluj9EqiCz2MyTOVdF0RyTZ8Zor05Osv3B5SuMpb3E/'
+  clusters:
+  - clusterName: "spoke"
+    networkType: "OVNKubernetes"
+    clusterLabels:
+      common: true
+      du-profile: 'latest'
+      sites : 'spoke'
+    clusterNetwork:
+      - cidr: 10.128.0.0/14
+        hostPrefix: 23
+    serviceNetwork:
+      - 172.32.0.0/16
+    additionalNTPSources:
+      - 192.168.125.1
+    nodes:
+      - hostName: "ztp-bmh-1.spoke.local.lab"
+        role: "master"
+        bmcAddress: "redfish-virtualmedia://192.168.125.1:9000/redfish/v1/Systems/local/ztp-bmh-1"
+        bmcCredentialsName:
+          name: "ztp-bmh-1-bmc-secret"
+        bootMACAddress: "be:be:ca:fe:02:64"
+        bootMode: "UEFI"
+        rootDeviceHints:
+          deviceName: '/dev/vda'
+        nodeNetwork:
+          interfaces:
+            - name: enp1s0
+              macAddress: "be:be:ca:fe:02:64"
+          config:
+            interfaces:
+              - name: enp3s0
+                type: ethernet
+                state: up
+                macAddress: "be:be:ca:fe:02:64"
+                ipv4:
+                  enabled: true
+                  auto-dns: true
+                  dhcp: true
+                ipv6:
+                  enabled: false
