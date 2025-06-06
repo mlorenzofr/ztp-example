@@ -47,13 +47,11 @@ spec:
             macAddress: "be:be:ca:fe:02:64"
         config:
           interfaces:
-            - name: enp3s0
+            - name: enp1s0
               type: ethernet
               state: up
-              macAddress: "be:be:ca:fe:02:64"
               ipv4:
                 enabled: true
-                auto-dns: true
                 dhcp: true
               ipv6:
                 enabled: false
