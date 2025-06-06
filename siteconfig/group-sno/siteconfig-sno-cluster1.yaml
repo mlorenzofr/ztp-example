@@ -10,13 +10,13 @@ spec:
     name: "ztp-pull-secret"
   clusterImageSetNameRef: 'img4.18.16-x86-64-appsub'
   sshPublicKey: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICluj9EqiCz2MyTOVdF0RyTZ8Zor05Osv3B5SuMpb3E/'
-  clusterName: "spoke"
+  clusterName: "ztp-sno"
   networkType: "OVNKubernetes"
   extraLabels:
     ManagedCluster:
       common: 'true'
       du-profile: 'latest'
-      sites : 'spoke'
+      sites : 'ztp-sno'
   holdInstallation: false
   clusterNetwork:
     - cidr: 10.128.0.0/14
@@ -31,7 +31,7 @@ spec:
     - name: ai-cluster-templates-v1
       namespace: open-cluster-management
   nodes:
-    - hostName: "ztp-bmh-1.spoke.local.lab"
+    - hostName: "ztp-bmh-1"
       role: "master"
       bmcAddress: "redfish-virtualmedia://192.168.125.1:9000/redfish/v1/Systems/local/ztp-bmh-1"
       bmcCredentialsName:
