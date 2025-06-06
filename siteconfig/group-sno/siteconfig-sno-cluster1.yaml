@@ -14,7 +14,7 @@ spec:
   networkType: "OVNKubernetes"
   extraLabels:
     ManagedCluster:
-      common: true
+      common: 'true'
       du-profile: 'latest'
       sites : 'spoke'
   holdInstallation: false
@@ -22,7 +22,7 @@ spec:
     - cidr: 10.128.0.0/14
       hostPrefix: 23
   serviceNetwork:
-    - 172.32.0.0/16
+    - cidr: 172.32.0.0/16
   machineNetwork:
     - cidr: '192.168.125.0/24'
   additionalNTPSources:
