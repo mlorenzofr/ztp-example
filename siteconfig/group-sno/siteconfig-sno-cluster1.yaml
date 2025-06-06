@@ -37,7 +37,7 @@ spec:
       bmcCredentialsName:
         name: "ztp-bmh-1-bmc-secret"
       bootMACAddress: "be:be:ca:fe:02:64"
-      bootMode: "UEFI"
+      bootMode: "legacy"
       rootDeviceHints:
         deviceName: '/dev/vda'
       nodeNetwork:
