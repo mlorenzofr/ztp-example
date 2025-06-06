@@ -9,6 +9,7 @@ spec:
   pullSecretRef:
     name: "ztp-pull-secret"
   clusterImageSetNameRef: 'img4.18.16-x86-64-appsub'
+  clusterType: 'SNO'
   sshPublicKey: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICluj9EqiCz2MyTOVdF0RyTZ8Zor05Osv3B5SuMpb3E/'
   clusterName: "ztp-sno"
   networkType: "OVNKubernetes"
