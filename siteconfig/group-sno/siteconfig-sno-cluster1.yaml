@@ -37,8 +37,13 @@ spec:
       bmcCredentialsName:
         name: "zraid-bmh-1-bmc-secret"
       bootMACAddress: "be:be:ca:fe:02:64"
-      rootDeviceHints:
-        deviceName: '/dev/vda'
+      raid:
+        softwareRAID:
+          - name: "root"
+            level: "1"
+            physicalDisks:
+              - '/dev/vda'
+              - '/dev/vdb'
       nodeNetwork:
         interfaces:
           - name: enp1s0
@@ -54,5 +59,5 @@ spec:
               ipv6:
                 enabled: false
       templateRefs:
-        - name: ai-node-templates-v1
+        - name: ai-node-templates-rfe-5666
           namespace: open-cluster-management
