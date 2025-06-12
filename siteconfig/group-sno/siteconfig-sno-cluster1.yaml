@@ -31,11 +31,11 @@ spec:
     - name: ai-cluster-templates-v1
       namespace: open-cluster-management
   nodes:
-    - hostName: "ztp-bmh-1"
+    - hostName: "zraid-bmh-1"
       role: "master"
-      bmcAddress: "redfish-virtualmedia://192.168.125.1:9000/redfish/v1/Systems/local/ztp-bmh-1"
+      bmcAddress: "redfish-virtualmedia://192.168.125.1:9000/redfish/v1/Systems/local/zraid-bmh-1"
       bmcCredentialsName:
-        name: "ztp-bmh-1-bmc-secret"
+        name: "zraid-bmh-1-bmc-secret"
       bootMACAddress: "be:be:ca:fe:02:64"
       rootDeviceHints:
         deviceName: '/dev/vda'
